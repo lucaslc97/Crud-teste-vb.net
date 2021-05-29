@@ -7,51 +7,13 @@ Public Class _Default
 
 
         If (Not IsPostBack) Then
-            Dim listCliente As New List(Of Cliente)
-            Dim conn As SqlConnection = Connection()
-            Dim stringSelecionaTodos As String = "Select * from Cliente"
-
-
-
-
-            If Not stringSelecionaTodos.Equals("") Then
-
-                Using cmd As SqlCommand = New SqlCommand(stringSelecionaTodos, conn)
-
-                    'Executando comando Sql acima
-                    Using sdr As SqlDataReader = cmd.ExecuteReader
-                        While sdr.Read
-
-                            Dim cliente As New Cliente
-                            cliente.id = sdr("CLI_ID").ToString
-                            cliente.nomeCliente = sdr("CLI_NOME").ToString
-                            cliente.dataNascimento = sdr("CLI_DATANASCIMENTO").ToString
-                            If sdr("CLI_ATIVO") = True Then
-                                cliente.ativo = "Sim"
-                            Else
-                                cliente.ativo = "Não"
-                            End If
-                            listCliente.Add(cliente)
-                            Session("idCliente") = cliente.id
-                        End While
-
-                    End Using
-                End Using
-
-            End If
-
-            GridView1.DataSource = listCliente
-            GridView1.DataBind()
+            ListaClientes()
         End If
 
 
     End Sub
 
-
-
     Protected Sub BtnEditar_Click(ByVal sender As Object, ByVal e As EventArgs)
-
-
 
     End Sub
 
@@ -75,7 +37,11 @@ Public Class _Default
                         cliente.id = sdr("CLI_ID").ToString
                         cliente.nomeCliente = sdr("CLI_NOME").ToString
                         cliente.dataNascimento = sdr("CLI_DATANASCIMENTO").ToString
-                        cliente.ativo = sdr("CLI_ATIVO")
+                        If sdr("CLI_ATIVO") = True Then
+                            cliente.ativo = "Sim"
+                        Else
+                            cliente.ativo = "Não"
+                        End If
                         listCliente.Add(cliente)
                         Session("idCliente") = cliente.id
                     End While
