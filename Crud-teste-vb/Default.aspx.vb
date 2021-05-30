@@ -7,27 +7,34 @@ Public Class _Default
 
 
         If (Not IsPostBack) Then
-            ListaClientes()
         End If
 
 
     End Sub
 
-    Protected Sub BtnEditar_Click(ByVal sender As Object, ByVal e As EventArgs)
-
+    Sub ListaTodos()
+        ListaClientes(Nothing)
     End Sub
 
-    Sub ListaClientes()
+    Sub Pesquisar()
+        Dim nomeCliente As String = Pesquisa.Text
+        ListaClientes(nomeCliente)
+    End Sub
+
+    Sub ListaClientes(nomeCliente)
         Dim listCliente As New List(Of Cliente)
         Dim conn As SqlConnection = Connection()
-        Dim stringSelecionaTodos As String = "Select * from Cliente"
+        Dim stringSeleciona As String = ""
 
+        If Not nomeCliente Is Nothing And Not nomeCliente = "" Then
+            stringSeleciona = "Select * from Cliente where CLI_NOME like '%" + nomeCliente + "%'"
+        ElseIf nomeCliente Is Nothing Then
+            stringSeleciona = "Select * from Cliente"
+        End If
 
+        If Not stringSeleciona.Equals("") Then
 
-
-        If Not stringSelecionaTodos.Equals("") Then
-
-            Using cmd As SqlCommand = New SqlCommand(stringSelecionaTodos, conn)
+            Using cmd As SqlCommand = New SqlCommand(stringSeleciona, conn)
 
                 'Executando comando Sql acima
                 Using sdr As SqlDataReader = cmd.ExecuteReader

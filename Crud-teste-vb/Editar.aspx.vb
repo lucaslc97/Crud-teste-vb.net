@@ -69,6 +69,9 @@ Public Class Editar
 
             mcd.ExecuteNonQuery()
 
+            Dim script As String = "alert('Cliente editado com Sucesso.');"
+            ClientScript.RegisterClientScriptBlock(Me.GetType(), "Alert", script, True)
+
         End If
     End Sub
 
@@ -86,6 +89,10 @@ Public Class Editar
 
         mcd.ExecuteNonQuery()
 
-        Response.Redirect("Default.aspx")
+        Dim script As String = "alert('Cliente deletado.');"
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Alert", script, True)
+
+
+
     End Sub
 End Class

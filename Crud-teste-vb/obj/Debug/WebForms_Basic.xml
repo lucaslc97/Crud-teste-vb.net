@@ -73,6 +73,42 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:Crud_teste_vb._Default._aCadastrarCliente">
+<summary>
+Controle aCadastrarCliente.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:Crud_teste_vb._Default._Pesquisa">
+<summary>
+Controle Pesquisa.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:Crud_teste_vb._Default._BtnPesquisa">
+<summary>
+Controle BtnPesquisa.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:Crud_teste_vb._Default._ListarTodos">
+<summary>
+Controle ListarTodos.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:Crud_teste_vb._Default._GridView1">
 <summary>
 Controle GridView1.

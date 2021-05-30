@@ -1,12 +1,34 @@
 ﻿<%@ Page Title="Home Page" Language="VB" EnableEventValidation="false" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.vb" Inherits="Crud_teste_vb._Default" %>
 
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    
 
 
     <div class="jumbotron">
+
+        <div class="container">
+              <div class="row">
+                <div class="col-4">
+                       <a runat="server" style="margin-bottom:30px;" id="aCadastrarCliente" class="btn btn-primary" href="~/Cadastrar">Cadastrar novo cliente</a>
+                </div>
+                <div class="col-4">
+                       <label for="Pesquisa">Pesquisar Cliente</label>
+                       <asp:TextBox ID="Pesquisa"  runat="server" ></asp:TextBox>
+                       <asp:Button   runat="server" text="Pesquisar" class="btn btn-primary" ID="BtnPesquisa" OnClick="Pesquisar" />
+                       <asp:Button   runat="server" text="Listar Todos" class="btn btn-primary" ID="ListarTodos" OnClick="ListaTodos" />
+                </div>
+              </div>
+        </div>
+
+        
+
                      <asp:GridView
                         ID="GridView1"
                         runat="server"
+                        style="margin-top:5px;"
                         ClientIDMode="Static"
                         AutoGenerateColumns="False"
                         DataKeyNames="Id"
@@ -33,7 +55,7 @@
                                         CommandName="Editar"
                                         CommandArgument='<%# Eval("id") %>' 
                                         Text="Editar" 
-                                        OnClick="btnEditar_Click">
+                                        >
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>

@@ -37,7 +37,10 @@ Public Class Contact
             mcd.ExecuteNonQuery()
 
             Session("passaValorModal") = 1
-            Response.Redirect("Default.aspx")
+
+            Dim script As String = "alert('Cliente cadastrado.');"
+            ClientScript.RegisterClientScriptBlock(Me.GetType(), "Alert", script, True)
+
 
         End If
 
